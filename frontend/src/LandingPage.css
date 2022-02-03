@@ -1,0 +1,17 @@
+.LandingPage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  text-align: center;
+}
+
+.LandingPage h1 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+.LandingPage p {
+  margin-bottom: 1rem;
+}

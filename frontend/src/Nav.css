@@ -1,0 +1,19 @@
+.Nav {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.25rem;
+}
+
+.Nav-link {
+  text-decoration: none;
+  padding: 1rem;
+  margin-right: 1rem;
+}
+
+.Nav-link.a {
+  font-style: bold;
+}
+
+.Nav-link-hero {
+  margin-right: auto;
+}
