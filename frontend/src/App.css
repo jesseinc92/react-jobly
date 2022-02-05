@@ -27,7 +27,7 @@ button {
   text-align: right;
 }
 
-.login-signup-form {
+.login-signup-form, .profile-card {
   border: 1px solid lightgrey;
   border-radius: 6px;
   padding-top: 1.25rem;
@@ -49,4 +49,10 @@ button {
   margin-bottom: 1.75rem;
   border: 1px solid lightgrey;
   border-radius: 6px;
+}
+
+.input-group p {
+  line-height: 2rem;
+  margin-top: 0.75rem;
+  margin-bottom: 1.75rem;
 }

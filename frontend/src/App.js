@@ -5,6 +5,7 @@ import JoblyDash from './JoblyDash';
 import LandingPage from './LandingPage';
 import LoginForm from './LoginForm';
 import SignUpForm from './SignUpForm';
+import Profile from './Profile';
 
 
 const App = () => {
@@ -15,6 +16,7 @@ const App = () => {
           <Route index element={<LandingPage />} />
           <Route path="login" element={<LoginForm />} />
           <Route path="signup" element={<SignUpForm />} />
+          <Route path="profile" element={<Profile />} />
         </Route>
       </Routes>
     </div>

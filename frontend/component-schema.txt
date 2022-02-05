@@ -2,8 +2,8 @@ App - Will contain the router and redirect/404 flow. No state, no props.
 
     JoblyDash - Top-level visible component. Will contain state and pass props.
 
-        NavBar - This component will be visible regardless of individual Outlet. No state or props, but will have NavLink.
-
+        NavBar - This component will be visible regardless of individual Outlet. No state.
+        
         LandingPage - A page with simple text telling the user to look around. No state, no props.
 
         SearchLanding - Component will render search form by default and Card components for each company in database. Will not directly control state, but has props.
