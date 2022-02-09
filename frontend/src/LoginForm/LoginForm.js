@@ -1,23 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Navigate, useOutletContext } from 'react-router-dom';
+import useFormData from '../hooks/useFormData';
 import './LoginForm.css';
 
 
 const LoginForm = () => {
   const INITIAL_STATE = { username: '', password: '' };
-  const [formData, setFormData] = useState(INITIAL_STATE);
   const { user, handleLogin } = useOutletContext();
-
-  const handleChange = e => {
-    const { name, value } = e.target;
-    setFormData(data => ({ ...data, [name]: value }));
-  }
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    handleLogin(formData);
-    setFormData(INITIAL_STATE);
-  }
+  const [formData, handleChange, handleSubmit] = useFormData(INITIAL_STATE, handleLogin);
 
   // redirects a user back to the Landing Page if
   // they are logged in
@@ -43,7 +33,7 @@ const LoginForm = () => {
         <div className='input-group'>
           <label><b>Password</b></label>
           <input 
-            type='text'
+            type='password'
             name='password'
             id='password'
             value={formData.password}

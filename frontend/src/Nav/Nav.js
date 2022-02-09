@@ -10,8 +10,8 @@ const Nav = ({ user, handleLogout }) => {
 
       {user ?
         <>
-          <NavLink className='Nav-link' to='/'>Companies</NavLink>
-          <NavLink className='Nav-link' to='/'>Jobs</NavLink>
+          <NavLink className='Nav-link' to='/companies'>Companies</NavLink>
+          <NavLink className='Nav-link' to='/jobs'>Jobs</NavLink>
           <NavLink className='Nav-link' to='/profile'>Profile</NavLink>
           <Link className='Nav-link' to='' onClick={handleLogout}>Log out {user.username}</Link>
         </>

@@ -1,0 +1,11 @@
+.CompanyPage {
+  width: 60%;
+  margin: auto;
+}
+
+.CompanyPage-logo {
+  display: block;
+  margin: auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}

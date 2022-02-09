@@ -1,0 +1,38 @@
+.SearchBar-input {
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+.SearchBar {
+  width: 100%;
+  margin: 0 0;
+}
+
+.SearchBar-input input {
+  flex-grow: 9;
+  border-radius: 6px 0 0 6px;
+}
+
+.SearchBar-input button {
+  flex-grow: 1;
+  line-height: 2rem;
+  margin-top: 0.75rem;
+  margin-bottom: 1.75rem;
+  background-color: #10ac84;
+  color: white;
+  border: 1px solid #10ac84;
+  border-radius: 0 6px 6px 0;
+  cursor: pointer;
+}
+
+.SearchBar-select {
+  height: 2.1rem;
+  margin-top: 0.75rem;
+  margin-bottom: 1.75rem;
+  border: 1px solid #10ac84;
+  background-color: #10ac84;
+  color: white;
+  font-size: 1rem;
+  padding-left: 0.5rem;
+}
