@@ -6,7 +6,6 @@ import './Jobs.css';
 
 
 const Jobs = () => {
-  // state and API calls go here
   const [jobs, setJobs] = useState([]);
   const [query, setQuery] = useState();
 

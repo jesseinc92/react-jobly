@@ -6,7 +6,6 @@ import './Companies.css';
 
 
 const Companies = () => {
-  // state and API calls go here
   const [companies, setCompanies] = useState([]);
   const [query, setQuery] = useState();
 

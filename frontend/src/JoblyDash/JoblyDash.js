@@ -53,7 +53,7 @@ const JoblyDash = () => {
   return (
     <main className='JoblyDash'>
       <Nav user={user} handleLogout={handleLogout}/>
-      <Outlet context={{user, setUser, handleSignUp, handleLogin, handleUpdate}} />
+      <Outlet context={{token, user, setUser, handleSignUp, handleLogin, handleUpdate}} />
     </main>
   );
 }

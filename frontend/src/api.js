@@ -51,6 +51,14 @@ class JoblyApi {
     return res;
   }
 
+  /** Apply for a job given user id and job id */
+
+  static async applyForJob(token, username, jobId) {
+    this.token = token;
+    let res = await this.request(`users/${username}/jobs/${jobId}`, {}, 'post');
+    return res.applied;
+  }
+
   /** Get details on all companies.
    * 
    *  If there is a query string, perform filter operations.

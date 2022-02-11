@@ -13,12 +13,12 @@ const SignUpForm = () => {
     email: ''
   };
 
-  const { user, handleSignUp } = useOutletContext();
+  const { token, handleSignUp } = useOutletContext();
   const [formData, handleChange, handleSubmit] = useFormData(INITIAL_STATE, handleSignUp);
 
   // redirects a user back to the Landing Page if
   // they are logged in
-  if (user) {
+  if (token) {
     return <Navigate to='/'/>
   }
 

@@ -6,12 +6,12 @@ import './LoginForm.css';
 
 const LoginForm = () => {
   const INITIAL_STATE = { username: '', password: '' };
-  const { user, handleLogin } = useOutletContext();
+  const { token, handleLogin } = useOutletContext();
   const [formData, handleChange, handleSubmit] = useFormData(INITIAL_STATE, handleLogin);
 
   // redirects a user back to the Landing Page if
   // they are logged in
-  if (user) {
+  if (token) {
     return <Navigate to='/'/>
   }
 
