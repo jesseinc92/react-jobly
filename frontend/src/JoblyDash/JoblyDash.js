@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 import Nav from '../Nav/Nav';
 import JoblyApi from '../api';
+import loginWithToken from '../helpers/loginWithToken';
 
 
 const JoblyDash = () => {
@@ -17,29 +18,36 @@ const JoblyDash = () => {
     setUser(JSON.parse(localStorage.getItem('user')));
   }, [token]);
 
-  const handleSignUp = () => {
-    // TODO: create sign up function
-  }
-
-  const handleLogin = async ({ username, password }) => {
+  const handleSignUp = async ({ username, password, firstName, lastName, email }) => {
     try {
-      const token = await JoblyApi.authUser(username, password);
-      setToken(token);
-
-      const authedUser = (await JoblyApi.getUser(token, username)).user;
-      setUser(authedUser);
-
-      // save authorized user details in local storage for persistence
-      localStorage.setItem('token', JSON.stringify(token));
-      localStorage.setItem('user', JSON.stringify(authedUser));
+      const token = await JoblyApi.createUser(username, password, firstName, lastName, email);
+      loginWithToken(token, username, setToken, setUser);
       history('/');
     } catch (err) {
       alert(err);
     }
   }
 
-  const handleUpdate = () => {
-    // TODO: create update function
+  const handleLogin = async ({ username, password }) => {
+    try {
+      const token = await JoblyApi.authUser(username, password);
+      loginWithToken(token, username, setToken, setUser);
+      history('/');
+    } catch (err) {
+      alert(err);
+    }
+  }
+
+  const handleUpdate = async ({ username, firstName, lastName, email }) => {
+    try {
+      // update the user, and save the returned user information in local storage
+      const updatedUser = await JoblyApi.updateUser(token, username, firstName, lastName, email);
+      localStorage.setItem('user', JSON.stringify(updatedUser));
+      setUser(updatedUser);
+      history('/');
+    } catch (err) {
+      alert(err);
+    }
   }
 
   const handleLogout = () => {

@@ -36,6 +36,13 @@ class JoblyApi {
 
   // Individual API routes
 
+  /** Create a new user */
+
+  static async createUser(username, password, firstName, lastName, email) {
+    let res = await this.request(`auth/register`, { username, password, firstName, lastName, email }, 'post');
+    return res.token;
+  }
+
   /** Get token after logging in a user. */
 
   static async authUser(username, password) {
@@ -48,7 +55,15 @@ class JoblyApi {
   static async getUser(token, username) {
     this.token = token;
     let res = await this.request(`users/${username}`);
-    return res;
+    return res.user;
+  }
+
+  /** Update a user */
+
+  static async updateUser(token, username, firstName, lastName, email) {
+    this.token = token;
+    let res = await this.request(`users/${username}`, { firstName, lastName, email }, 'patch');
+    return res.user;
   }
 
   /** Apply for a job given user id and job id */

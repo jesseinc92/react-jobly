@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useOutletContext } from 'react-router-dom';
+import useFormData from '../hooks/useFormData';
 import './Profile.css';
 
 
@@ -7,18 +8,8 @@ const Profile = () => {
   const { handleUpdate } = useOutletContext();
   const currUser = JSON.parse(localStorage.getItem('user'));
 
-  const [formData, setFormData] = useState(currUser);
-
-  const handleChange = e => {
-    const { name, value } = e.target;
-    setFormData(data => ({ ...data, [name]: value }));
-  }
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    handleUpdate(formData);
-    setFormData(currUser);
-  }
+  const [formData, handleChange, handleSubmit] = useFormData(
+    { ...currUser }, handleUpdate);
 
   return (
     <div className='Profile'>
@@ -62,16 +53,8 @@ const Profile = () => {
           />
         </div>
 
-        <div className='input-group'>
-          <label htmlFor='password'><b>Confirm password to make changes.</b></label>
-          <input 
-            type='password' 
-            id='password'
-            name='password'
-            value='' 
-            placeholder='TODO: enable authentication'
-            onChange={handleChange}
-          />
+        <div className='form-btn'>
+          <button className='primary-btn'>Save</button>
         </div>
       </form>
     </div>
