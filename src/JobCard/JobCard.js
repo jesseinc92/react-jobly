@@ -8,6 +8,7 @@ const JobCard = ({ job }) => {
   const [applied, setApplied] = useState(false);
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')));
   const token = JSON.parse(localStorage.getItem('token'));
+  console.log(user)
 
   // pre-loads the applied state upon mount and updates it with 
   useEffect(() => {
@@ -26,9 +27,9 @@ const JobCard = ({ job }) => {
 
     // TODO: find a way to re-render upon Apply
     const updatedUser = await JoblyApi.getUser(token, user.username);
-    console.log(updatedUser.user);
-    setUser(updatedUser.user);
-    localStorage.setItem('user', JSON.stringify(updatedUser.user));
+    localStorage.setItem('user', JSON.stringify(updatedUser));
+    console.log(updatedUser);
+    setUser(updatedUser);
   }
 
   return (
